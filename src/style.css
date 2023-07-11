@@ -120,13 +120,15 @@ button {
   align-items: center;
   font-size: 1rem;
   cursor: pointer;
-  position: absolute;
-  right: 0;
   align-self: center;
 }
 
+li button {
+  position: absolute;
+  right: 0;
+}
+
 #clear button {
-  position: static;
   margin: auto;
   color: #808080;
   font-family: 'Roboto', sans-serif;
