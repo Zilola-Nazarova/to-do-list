@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import './style.css';
 import Drag from './drag-handle-minor-svgrepo-com.svg';
 
@@ -34,33 +33,31 @@ const tasksArray = [
     completed: true,
     index: 4,
   },
-]
-
+];
 
 const label = document.querySelector('label');
 label.innerHTML = listName;
 
 const renderList = (arr) => {
   const ul = document.querySelector('ul');
-  ul.innerHTML = ''; 
+  ul.innerHTML = '';
 
   const sortedArr = [...arr];
-  sortedArr.sort(function (a, b) {
-    return a.index - b.index;
-  })
+  sortedArr.sort((a, b) => a.index - b.index);
 
   for (let i = 0; i < sortedArr.length; i += 1) {
-    let task = document.createElement('li');
-    let label = document.createElement('label');
-    let input = document.createElement('input');
-    let checkmark = document.createElement('span');
-    let moveBtn = document.createElement('button');
-    let icon = document.createElement('img');
+    const task = document.createElement('li');
+    const label = document.createElement('label');
+    const input = document.createElement('input');
+    const checkmark = document.createElement('span');
+    const moveBtn = document.createElement('button');
+    const icon = document.createElement('img');
+
     icon.src = Drag;
     moveBtn.appendChild(icon);
     checkmark.classList.add('checkmark');
-    input.setAttribute('type', 'checkbox');   
-    
+    input.setAttribute('type', 'checkbox');
+
     label.appendChild(input);
     label.appendChild(checkmark);
     task.appendChild(label);
@@ -68,6 +65,6 @@ const renderList = (arr) => {
     label.appendChild(moveBtn);
     ul.appendChild(task);
   }
-}
-  
-renderList(tasksArray); 
+};
+
+renderList(tasksArray);

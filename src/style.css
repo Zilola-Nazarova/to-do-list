@@ -17,39 +17,10 @@ ul {
   list-style: none;
 }
 
-input {
+div input {
   border: none;
   font-style: italic;
-}
-
-input::placeholder {
   font-size: 1rem;
-}
-
-#container {
-  width: 80%;
-  max-width: 600px;
-  background-color: #fff;
-  padding: 0;
-  box-shadow: 4px 6px 6px 2px rgb(214, 214, 214),
-  -4px 6px 6px 2px rgb(214, 214, 214);
-}
-
-#container div {
-  display: flex;
-  justify-content: space-between;
-}
-
-div,
-li {
-  padding: 1rem 1.1rem 0.8rem;
-  border-bottom: 1px solid rgb(223, 223, 223);
-}
-
-label {
-  position: relative;
-  display: flex;
-  align-items: flex-end;
 }
 
 li input {
@@ -60,14 +31,43 @@ li input {
   width: 0;
 }
 
-img {
-  height: 1rem;
+div input:focus {
+  outline: none;
 }
 
-label button {
-  position: absolute;
-  right: 0;
-  align-self: center;
+div input::placeholder {
+  font-size: 1rem;
+}
+
+#container {
+  width: 80%;
+  max-width: 600px;
+  background-color: #fff;
+  padding: 0;
+  box-shadow:
+    4px 6px 6px 2px rgb(214, 214, 214),
+    -4px 6px 6px 2px rgb(214, 214, 214);
+}
+
+div,
+li {
+  padding: 1rem 1.1rem 0.8rem;
+  border-bottom: 1px solid rgb(223, 223, 223);
+}
+
+#container div {
+  display: flex;
+  justify-content: space-between;
+}
+
+label {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+}
+
+img {
+  height: 1rem;
 }
 
 .checkmark {
@@ -86,16 +86,12 @@ li input:checked ~ .checkmark {
   border: none;
 }
 
-.checkmark:after {
+.checkmark::after {
   content: "";
   display: none;
 }
 
-li input:checked ~ .checkmark:after {
-  display: block;
-}
-
-li .checkmark:after {
+li .checkmark::after {
   position: relative;
   top: 4px;
   left: 7px;
@@ -108,22 +104,29 @@ li .checkmark:after {
   transform: rotate(45deg);
 }
 
+li input:checked ~ .checkmark::after {
+  display: block;
+}
+
 #clear {
   background-color: #f1f1f1;
   padding: 1.2rem;
 }
 
 button {
-  display: block;
   border: none;
   background-color: transparent;
   display: flex;
   align-items: center;
   font-size: 1rem;
   cursor: pointer;
+  position: absolute;
+  right: 0;
+  align-self: center;
 }
 
 #clear button {
+  position: static;
   margin: auto;
   color: #808080;
   font-family: 'Roboto', sans-serif;
