@@ -1,7 +1,130 @@
-.hello {
-  color: beige;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body {
-  background-color: thistle;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f1f1f1;
+  font-family: 'Roboto', sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+input {
+  border: none;
+  font-style: italic;
+}
+
+input::placeholder {
+  font-size: 1rem;
+}
+
+#container {
+  width: 80%;
+  max-width: 600px;
+  background-color: #fff;
+  padding: 0;
+  box-shadow: 4px 6px 6px 2px rgb(214, 214, 214),
+  -4px 6px 6px 2px rgb(214, 214, 214);
+}
+
+#container div {
+  display: flex;
+  justify-content: space-between;
+}
+
+div,
+li {
+  padding: 1rem 1.1rem 0.8rem;
+  border-bottom: 1px solid rgb(223, 223, 223);
+}
+
+label {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+}
+
+li input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+img {
+  height: 1rem;
+}
+
+label button {
+  position: absolute;
+  right: 0;
+  align-self: center;
+}
+
+.checkmark {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  margin-right: 16px;
+  border: 2px solid #eee;
+}
+
+li:hover input ~ .checkmark {
+  border: 2px solid #a8a8a8;
+}
+
+li input:checked ~ .checkmark {
+  border: none;
+}
+
+.checkmark:after {
+  content: "";
+  display: none;
+}
+
+li input:checked ~ .checkmark:after {
+  display: block;
+}
+
+li .checkmark:after {
+  position: relative;
+  top: 4px;
+  left: 7px;
+  width: 5px;
+  height: 10px;
+  border: solid rgb(17, 127, 253);
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+#clear {
+  background-color: #f1f1f1;
+  padding: 1.2rem;
+}
+
+button {
+  display: block;
+  border: none;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+#clear button {
+  margin: auto;
+  color: #808080;
+  font-family: 'Roboto', sans-serif;
 }
