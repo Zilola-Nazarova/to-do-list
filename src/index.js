@@ -36,3 +36,38 @@ const tasksArray = [
   },
 ]
 
+
+const label = document.querySelector('label');
+label.innerHTML = listName;
+
+const renderList = (arr) => {
+  const ul = document.querySelector('ul');
+  ul.innerHTML = ''; 
+
+  const sortedArr = [...arr];
+  sortedArr.sort(function (a, b) {
+    return a.index - b.index;
+  })
+
+  for (let i = 0; i < sortedArr.length; i += 1) {
+    let task = document.createElement('li');
+    let label = document.createElement('label');
+    let input = document.createElement('input');
+    let checkmark = document.createElement('span');
+    let moveBtn = document.createElement('button');
+    let icon = document.createElement('img');
+    icon.src = Drag;
+    moveBtn.appendChild(icon);
+    checkmark.classList.add('checkmark');
+    input.setAttribute('type', 'checkbox');   
+    
+    label.appendChild(input);
+    label.appendChild(checkmark);
+    task.appendChild(label);
+    label.innerHTML += `${sortedArr[i].description}`;
+    label.appendChild(moveBtn);
+    ul.appendChild(task);
+  }
+}
+  
+renderList(tasksArray); 
