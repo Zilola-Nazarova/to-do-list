@@ -8,7 +8,7 @@ body {
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   background-color: #f1f1f1;
   font-family: 'Roboto', sans-serif;
 }
@@ -21,14 +21,28 @@ div input {
   border: none;
   font-style: italic;
   font-size: 1rem;
+  width: 100%;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 li input {
-  position: absolute;
-  opacity: 0;
+  margin-right: 15px;
+  height: 20px;
+  font-size: 1rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
   cursor: pointer;
-  height: 0;
-  width: 0;
+  width: 100%;
+  background-color: transparent;
+}
+
+li.on-edit {
+  background-color: rgb(253, 227, 178);
 }
 
 div input:focus {
@@ -40,6 +54,7 @@ div input::placeholder {
 }
 
 #container {
+  margin-top: 10%;
   width: 80%;
   max-width: 600px;
   background-color: #fff;
@@ -60,12 +75,6 @@ li {
   justify-content: space-between;
 }
 
-label {
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-}
-
 img {
   height: 1rem;
 }
@@ -76,13 +85,14 @@ img {
   width: 20px;
   margin-right: 16px;
   border: 2px solid #eee;
+  flex-shrink: 0;
 }
 
-li:hover input ~ .checkmark {
+li:hover .checkmark {
   border: 2px solid #a8a8a8;
 }
 
-li input:checked ~ .checkmark {
+li .checkmark.checked {
   border: none;
 }
 
@@ -93,7 +103,7 @@ li input:checked ~ .checkmark {
 
 li .checkmark::after {
   position: relative;
-  top: 4px;
+  top: 2px;
   left: 7px;
   width: 5px;
   height: 10px;
@@ -102,9 +112,9 @@ li .checkmark::after {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
-}
+} 
 
-li input:checked ~ .checkmark::after {
+.checkmark.checked::after {
   display: block;
 }
 
@@ -124,12 +134,20 @@ button {
 }
 
 li button {
-  position: absolute;
-  right: 0;
+  /* position: absolute;
+  right: 0; */
 }
 
 #clear button {
   margin: auto;
   color: #808080;
   font-family: 'Roboto', sans-serif;
+}
+
+.new {
+  position: static;
+  opacity: 1;
+  width: 100px;
+  height: 1rem;
+  background-color: aqua;
 }

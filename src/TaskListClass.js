@@ -56,9 +56,8 @@ class TaskList {
     for (let i = 0; i < sortedArr.length; i += 1) {
       this.tasks[i].index = i + 1;
       const li = document.createElement('li');
-      const label = document.createElement('label');
+      // const label = document.createElement('label');
       const input = document.createElement('input');
-      input.setAttribute('type', 'checkbox');
   
       const checkmark = document.createElement('span');
       checkmark.classList.add('checkmark');
@@ -72,14 +71,29 @@ class TaskList {
       moveBtn.addEventListener('click', () => {
         this.deleteTask(i);
       });
-  
-      label.appendChild(input);
-      label.appendChild(checkmark);
-      label.innerHTML += `${sortedArr[i].description}`;
-      label.appendChild(moveBtn);
-  
-      li.appendChild(label);
+      
+      input.addEventListener('click', () => {
+        document.querySelectorAll('li').forEach((element) => {
+          element.classList.remove('on-edit');
+        });
+        li.classList.add('on-edit');
+      });
+
+      input.addEventListener('blur', () => {
+        document.querySelectorAll('li').forEach((element) => {
+          element.classList.remove('on-edit');
+        });
+      });
+
+      li.appendChild(checkmark);
+      li.appendChild(input);
+      input.value = `${sortedArr[i].description}`;
+      li.appendChild(moveBtn);
       ul.appendChild(li);
+
+      checkmark.addEventListener('click', () => {
+        checkmark.classList.toggle('checked');
+      });
     }
   };
 };
