@@ -74,6 +74,9 @@ class TaskList {
 
       const checkmark = document.createElement('span');
       checkmark.classList.add('checkmark');
+      if (this.tasks[i].completed === true) {
+        checkmark.classList.add('checked');
+      }
 
       const moveBtn = document.createElement('button');
       const deleteBtn = document.createElement('button');
