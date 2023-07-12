@@ -1,5 +1,6 @@
 import TaskObject from './TaskObject.js';
 import Drag from './drag-handle-minor-svgrepo-com.svg';
+import Bin from './bin-svgrepo-com.svg';
 
 class TaskList {
   constructor() {
@@ -63,12 +64,19 @@ class TaskList {
       checkmark.classList.add('checkmark');
 
       const moveBtn = document.createElement('button');
+      const deleteBtn = document.createElement('button');
 
-      const iconInBtn = document.createElement('img');
-      iconInBtn.src = Drag;
-      moveBtn.appendChild(iconInBtn);
+      const moveIcon = document.createElement('img');
+      moveIcon.src = Drag;
+      moveBtn.appendChild(moveIcon);
 
-      moveBtn.addEventListener('click', () => {
+      const deleteIcon = document.createElement('img');
+      deleteIcon.src = Bin;
+      deleteBtn.appendChild(deleteIcon);
+      deleteBtn.classList.add('hidden');
+
+      deleteBtn.addEventListener('click', () => {
+        console.log('click');
         this.deleteTask(i);
       });
 
@@ -77,17 +85,25 @@ class TaskList {
           element.classList.remove('on-edit');
         });
         li.classList.add('on-edit');
+        checkmark.classList.add('darken');
+        moveBtn.classList.add('hidden');
+        deleteBtn.classList.remove('hidden');
       });
 
       input.addEventListener('blur', () => {
         document.querySelectorAll('li').forEach((element) => {
           element.classList.remove('on-edit');
         });
+        setTimeout( () => {
+          deleteBtn.classList.add('hidden');
+          moveBtn.classList.remove('hidden');
+        }, 500);
       });
 
       li.appendChild(checkmark);
       li.appendChild(input);
       input.value = `${sortedArr[i].description}`;
+      li.appendChild(deleteBtn);
       li.appendChild(moveBtn);
       ul.appendChild(li);
 
