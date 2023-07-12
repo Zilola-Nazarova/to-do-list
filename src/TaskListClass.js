@@ -1,4 +1,5 @@
 import TaskObject from './TaskObject.js';
+import completedIsFalse from './CompletedFilter.js';
 import Drag from './drag-handle-minor-svgrepo-com.svg';
 import Bin from './bin-svgrepo-com.svg';
 
@@ -19,6 +20,11 @@ class TaskList {
         event.preventDefault();
         this.addingEventListener();
       }
+    });
+
+    const clearBtn = document.getElementById('clear');
+    clearBtn.addEventListener('click', () => {
+      this.clearCompleted();
     });
 
     window.addEventListener('load', () => {
@@ -47,6 +53,12 @@ class TaskList {
     localStorage.setItem('To-Do List', JSON.stringify(this.tasks));
   }
 
+  clearCompleted() {
+    this.tasks = this.tasks.filter(completedIsFalse);
+    this.renderList();
+    localStorage.setItem('To-Do List', JSON.stringify(this.tasks));
+  }
+
   renderList() {
     const ul = document.querySelector('ul');
     ul.innerHTML = '';
@@ -62,6 +74,9 @@ class TaskList {
 
       const checkmark = document.createElement('span');
       checkmark.classList.add('checkmark');
+      if (this.tasks[i].completed === true) {
+        checkmark.classList.add('checked');
+      }
 
       const moveBtn = document.createElement('button');
       const deleteBtn = document.createElement('button');
@@ -102,12 +117,22 @@ class TaskList {
       li.appendChild(checkmark);
       li.appendChild(input);
       input.value = `${sortedArr[i].description}`;
+      input.addEventListener('keyup', () => {
+        sortedArr[i].description = input.value;
+        localStorage.setItem('To-Do List', JSON.stringify(this.tasks));
+      });
       li.appendChild(deleteBtn);
       li.appendChild(moveBtn);
       ul.appendChild(li);
 
       checkmark.addEventListener('click', () => {
         checkmark.classList.toggle('checked');
+        if (checkmark.classList.contains('checked')) {
+          this.tasks[i].completed = true;
+        } else {
+          this.tasks[i].completed = false;
+        }
+        localStorage.setItem('To-Do List', JSON.stringify(this.tasks));
       });
     }
   }
