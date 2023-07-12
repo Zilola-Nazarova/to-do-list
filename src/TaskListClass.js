@@ -10,12 +10,13 @@ class TaskList {
     const addButton = document.getElementById('add-btn');
     addButton.addEventListener('click', (event) => {
       event.preventDefault();
-      const description = document.getElementById('add-task').value;
-      if (description !== '') {
-        const aTask = new taskObject (description, this.tasks.length);
-        this.addTask(aTask);
-        renderList(this.tasks);
-        document.getElementById('add-task').value = '';
+      this.addingEventListener(); 
+    });
+
+    document.getElementById('add-task').addEventListener('keypress', (event) => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        this.addingEventListener();
       }
     });
 
@@ -24,6 +25,16 @@ class TaskList {
       renderList(this.tasks);
     });
   };
+
+  addingEventListener() {
+    const description = document.getElementById('add-task').value;
+    if (description !== '') {
+      const aTask = new taskObject (description, this.tasks.length);
+      this.addTask(aTask);
+      renderList(this.tasks);
+      document.getElementById('add-task').value = '';
+    }
+  }
 
   addTask(aTask) {
     this.tasks.push(aTask);
