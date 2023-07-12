@@ -112,7 +112,7 @@ li .checkmark::after {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
-} 
+}
 
 .checkmark.checked::after {
   display: block;
@@ -131,11 +131,6 @@ button {
   font-size: 1rem;
   cursor: pointer;
   align-self: center;
-}
-
-li button {
-  /* position: absolute;
-  right: 0; */
 }
 
 #clear button {
