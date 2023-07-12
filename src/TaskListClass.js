@@ -76,7 +76,6 @@ class TaskList {
       deleteBtn.classList.add('hidden');
 
       deleteBtn.addEventListener('click', () => {
-        console.log('click');
         this.deleteTask(i);
       });
 
@@ -94,7 +93,7 @@ class TaskList {
         document.querySelectorAll('li').forEach((element) => {
           element.classList.remove('on-edit');
         });
-        setTimeout( () => {
+        setTimeout(() => {
           deleteBtn.classList.add('hidden');
           moveBtn.classList.remove('hidden');
         }, 500);
