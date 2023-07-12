@@ -26,7 +26,7 @@ class TaskList {
     clearBtn.addEventListener('click', () => {
       this.clearCompleted();
     });
-    
+
     window.addEventListener('load', () => {
       this.renderList();
     });
@@ -49,6 +49,12 @@ class TaskList {
 
   deleteTask(index) {
     this.tasks.splice(index, 1);
+    this.renderList();
+    localStorage.setItem('To-Do List', JSON.stringify(this.tasks));
+  }
+
+  clearCompleted() {
+    this.tasks = this.tasks.filter(completedIsFalse);
     this.renderList();
     localStorage.setItem('To-Do List', JSON.stringify(this.tasks));
   }
