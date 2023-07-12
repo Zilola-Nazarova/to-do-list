@@ -79,7 +79,7 @@ The repo was documented in a professional way. The Website is simple and dynamic
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- the link for the Demo of this app will be provided after completing [secure deploy exercise](https://github.com/microverseinc/curriculum-javascript/blob/main/todo-list/exercises/exercise_to_do_list_secure_deploy.md) on Friday (14.07.2023);
+- use this link to visit and try the [To-Do list app](https://zilola-nazarova.github.io/to-do-list/dist/);
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -134,9 +134,8 @@ You might want to have linters installed in your local env to successfully run a
 You can use this project to create your To-Do list:
 
 1. Run `npm start` in your command line (or open the Demo link). This will open a browser tab.
-2. Enter your task in the input field. Click the "Add" button to add the task to the List. The new task is displayed in the List below.
-3. Drag and move the List items to change the order of your tasks.
-4. Double click on the task to edit it.
+2. Type your task in the input field. Click the "Add" button or press "Enter" key to add the task to the List. The new task is displayed in the List below.
+3. Click on the task to edit it. The "Delete" (bin) button appears instead of "Drag" button.
 5. Click the "Delete" (bin) button to delete the task.
 6. Check the completed tasks by clicking on them.
 7. Click the "Clear all completed" button to remove the completed tasks from the List.
@@ -153,7 +152,7 @@ To run tests on the cloned project, run the following commands:
 
 ### Deployment
 
-Visit this project's single-page app [here]()(the link for the Demo of this app will be provided after completing [secure deploy exercise](https://github.com/microverseinc/curriculum-javascript/blob/main/todo-list/exercises/exercise_to_do_list_secure_deploy.md)).
+Visit this project's single-page app [here](https://zilola-nazarova.github.io/to-do-list/dist/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -174,7 +173,7 @@ Visit this project's single-page app [here]()(the link for the Demo of this app 
 
 Future features may include:
 - design improvements;
-- additional functionalities.
+- additional functionalities: Drag and move the List items to change the order of the tasks.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -205,8 +204,6 @@ I am grateful for all our previous project reviewers for their advice. Thanks to
 
 ## ❓ FAQ <a name="faq"></a>
 
-- **Why there is no Demo link for this project?**
-  - It seems we will learn the way to deploy bundled code in the [secure deploy lesson](https://github.com/microverseinc/curriculum-javascript/blob/main/todo-list/exercises/exercise_to_do_list_secure_deploy.md).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
