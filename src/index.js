@@ -8,4 +8,3 @@ label.innerHTML = listName;
 
 const taskList = new TaskList();
 taskList.init();
-
