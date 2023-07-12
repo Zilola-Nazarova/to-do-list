@@ -1,5 +1,4 @@
-// import './style.css';
-// import Drag from './drag-handle-minor-svgrepo-com.svg';
+import './style.css';
 import TaskList from './TaskListClass.js';
 
 const listName = "Today's To Do";

@@ -1,4 +1,5 @@
 import TaskObject from './TaskObject.js';
+import Drag from './drag-handle-minor-svgrepo-com.svg';
 
 class TaskList {
   constructor() {
@@ -64,7 +65,7 @@ class TaskList {
       const moveBtn = document.createElement('button');
 
       const iconInBtn = document.createElement('img');
-      iconInBtn.src = './drag-handle-minor-svgrepo-com.svg';
+      iconInBtn.src = Drag;
       moveBtn.appendChild(iconInBtn);
 
       moveBtn.addEventListener('click', () => {
