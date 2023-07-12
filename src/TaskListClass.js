@@ -1,4 +1,5 @@
 import TaskObject from './TaskObject.js';
+import completedIsFalse from './CompletedFilter.js';
 import Drag from './drag-handle-minor-svgrepo-com.svg';
 import Bin from './bin-svgrepo-com.svg';
 
