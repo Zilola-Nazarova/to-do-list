@@ -120,7 +120,7 @@ class TaskList {
       input.addEventListener('keyup', () => {
         sortedArr[i].description = input.value;
         localStorage.setItem('To-Do List', JSON.stringify(this.tasks));
-      })
+      });
       li.appendChild(deleteBtn);
       li.appendChild(moveBtn);
       ul.appendChild(li);
