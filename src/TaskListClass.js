@@ -22,6 +22,11 @@ class TaskList {
       }
     });
 
+    const clearBtn = document.getElementById('clear');
+    clearBtn.addEventListener('click', () => {
+      this.clearCompleted();
+    });
+    
     window.addEventListener('load', () => {
       this.renderList();
     });
