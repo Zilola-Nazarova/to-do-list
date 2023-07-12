@@ -127,6 +127,12 @@ class TaskList {
 
       checkmark.addEventListener('click', () => {
         checkmark.classList.toggle('checked');
+        if (checkmark.classList.contains('checked')) {
+          this.tasks[i].completed = true;
+        } else {
+          this.tasks[i].completed = false;
+        }
+        localStorage.setItem('To-Do List', JSON.stringify(this.tasks));
       });
     }
   }
