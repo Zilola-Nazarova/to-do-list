@@ -79,7 +79,7 @@ The repo was documented in a professional way. The Website is simple and dynamic
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- use this link to visit and try the [To-Do list app](https://zilola-nazarova.github.io/to-do-list/dist/);
+- use this link to visit and try the [To-Do list app](https://zilola-nazarova.github.io/to-do-list);
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -152,7 +152,7 @@ To run tests on the cloned project, run the following commands:
 
 ### Deployment
 
-Visit this project's single-page app [here](https://zilola-nazarova.github.io/to-do-list/dist/).
+Visit this project's single-page app [here](https://zilola-nazarova.github.io/to-do-list).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
