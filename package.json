@@ -4,7 +4,7 @@
   "description": "Microverse project",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "deploy": "gh-pages -d dist",
     "watch": "webpack --watch",
     "start": "webpack serve --open",
@@ -15,6 +15,7 @@
   "license": "ISC",
   "homepage": "https://zilola-nazarova.github.io/to-do-list",
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.22.5",
     "babel-eslint": "^10.1.0",
     "css-loader": "^6.8.1",
     "eslint": "^7.32.0",
