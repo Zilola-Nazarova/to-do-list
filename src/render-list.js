@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import deleteTask from './delete-item.js';
 import dragIcon from './icons/drag-handle-minor-svgrepo-com.svg';
 import binIcon from './icons/bin-svgrepo-com.svg';

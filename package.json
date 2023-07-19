@@ -4,7 +4,7 @@
   "description": "Microverse project",
   "private": true,
   "scripts": {
-    "test": "jest --env=jsdom",
+    "test": "jest --coverage --env=jsdom",
     "deploy": "gh-pages -d dist",
     "watch": "webpack --watch",
     "start": "webpack serve --open",

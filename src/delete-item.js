@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import renderList from './render-list.js';
 
 const deleteTask = (arr, index) => {

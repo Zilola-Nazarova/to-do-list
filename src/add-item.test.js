@@ -7,6 +7,11 @@ describe('add to empty array', () => {
     // arrange
     const arryOfTasks = [];
     const description = 'Setup linters';
+    document.body.innerHTML = '<div>'
+    + '  <input id="add-task">'
+    + '  <ul id="list">'
+    + '  </ul>'
+    + '</div>';
     // act
     addTask(description, arryOfTasks);
     // assert
