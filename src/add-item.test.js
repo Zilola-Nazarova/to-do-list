@@ -8,11 +8,11 @@ describe('add to empty array', () => {
     const description = 'Setup linters';
     document.body.innerHTML = 
     '<div>' +
-    '<input id = " add-task">'+
-    '<ul>'+
-    '</ul>'+
+    '<input id="add-task">' +
+    '<ul>' +
+    '</ul>' +
     '</div>';
-// act
+    // act
     addTask(description, arryOfTasks);
     // assert
     expect(arryOfTasks).toMatchObject([{description: 'Setup linters',
