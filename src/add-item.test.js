@@ -41,10 +41,30 @@ describe('add to empty array', () => {
 describe('add to existing array', () => {
   test('should append a new object with correct properties to the end of the array', () => {
     // arrange
-
-    // act
-
-    // assert
+    const arrayOfTasks = [
+       {
+         description: 'Call a mentor',
+         completed: true,
+         index: 1
+       }
+     ];
+     const description = 'Setup linters';
+     // act
+     addTask(description, arrayOfTasks);
+     // assert
+     expect(arrayOfTasks).toMatchObject([
+       {
+       description: 'Call a mentor',
+       completed: true,
+       index: 1
+       },
+       {
+       description: 'Setup linters',
+       completed: false,
+       index: 2
+       }
+          ]);
+       });
 
   });
 
@@ -56,4 +76,3 @@ describe('add to existing array', () => {
     // assert
 
   });
-});
