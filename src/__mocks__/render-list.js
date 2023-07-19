@@ -7,6 +7,6 @@ const renderList = (arr) => {
     const li = document.createElement('li');
     ul.appendChild(li);
   }
-}
+};
 
 export default renderList;
