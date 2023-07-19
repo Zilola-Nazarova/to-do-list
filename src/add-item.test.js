@@ -22,11 +22,19 @@ describe('add to empty array', () => {
 
   test('should add exactly one <li> element to the list in the DOM', () => {
     // arrange
-
+    const arrayOfTasks = [];
+    const description = 'Setup linters';
+    document.body.innerHTML = 
+    '<div>' +
+    ' <input id="add-task">' +
+    '  <ul>' +
+    '  </ul>' +
+    '</div>';
     // act
-
+    addTask(description, arrayOfTasks);
     // assert
-
+    const list = document.querySelectorAll('li');
+    expect(list).toHaveLength(1);
   });
 });
 
