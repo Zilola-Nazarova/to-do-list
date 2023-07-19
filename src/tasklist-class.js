@@ -18,7 +18,7 @@ class TaskList {
     });
 
     document.getElementById('add-task').addEventListener('keypress', (event) => {
-      if (event.key === 'Enter') {    
+      if (event.key === 'Enter') {
         event.preventDefault();
         const description = document.getElementById('add-task').value;
         if (description !== '') {

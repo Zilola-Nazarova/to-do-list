@@ -1,4 +1,4 @@
-import addTask from './add-item.js';
+// import addTask from './add-item.js';
 
 describe('add to empty array', () => {
   test('should create a new object with correct properties', () => {
@@ -7,7 +7,7 @@ describe('add to empty array', () => {
     // act
 
     // assert
-    
+
   });
 
   test('should add exactly one <li> element to the list in the DOM', () => {
@@ -16,7 +16,7 @@ describe('add to empty array', () => {
     // act
 
     // assert
-    
+
   });
 });
 
@@ -27,7 +27,7 @@ describe('add to existing array', () => {
     // act
 
     // assert
-    
+
   });
 
   test('should add exactly one <li> element to the list in the DOM', () => {

@@ -1,6 +1,6 @@
-import deleteTask from "./delete-item.js";
-import drag_icon from './icons/drag-handle-minor-svgrepo-com.svg';
-import bin_icon from './icons/bin-svgrepo-com.svg';
+import deleteTask from './delete-item.js';
+import dragIcon from './icons/drag-handle-minor-svgrepo-com.svg';
+import binIcon from './icons/bin-svgrepo-com.svg';
 
 const renderList = (arr) => {
   const ul = document.querySelector('ul');
@@ -25,11 +25,11 @@ const renderList = (arr) => {
     const deleteBtn = document.createElement('button');
 
     const moveIcon = document.createElement('img');
-    moveIcon.src = drag_icon;
+    moveIcon.src = dragIcon;
     moveBtn.appendChild(moveIcon);
 
     const deleteIcon = document.createElement('img');
-    deleteIcon.src = bin_icon;
+    deleteIcon.src = binIcon;
     deleteBtn.appendChild(deleteIcon);
     deleteBtn.classList.add('hidden');
 
@@ -78,6 +78,6 @@ const renderList = (arr) => {
       localStorage.setItem('To-Do List', JSON.stringify(sortedArr));
     });
   }
-}
+};
 
 export default renderList;

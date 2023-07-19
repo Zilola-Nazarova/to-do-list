@@ -7,6 +7,6 @@ const addTask = (description, arr) => {
   renderList(arr);
   localStorage.setItem('To-Do List', JSON.stringify(arr));
   document.getElementById('add-task').value = '';
-}
+};
 
 export default addTask;
