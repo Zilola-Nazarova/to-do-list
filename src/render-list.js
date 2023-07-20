@@ -1,5 +1,6 @@
 /* eslint-disable import/no-cycle */
 import deleteTask from './delete-item.js';
+import updateStatus from './update-status.js';
 import dragIcon from './icons/drag-handle-minor-svgrepo-com.svg';
 import binIcon from './icons/bin-svgrepo-com.svg';
 
@@ -76,15 +77,7 @@ const renderList = (arr) => {
       localStorage.setItem('To-Do List', JSON.stringify(sortedArr));
     });
 
-    checkmark.addEventListener('click', () => {
-      checkmark.classList.toggle('checked');
-      if (checkmark.classList.contains('checked')) {
-        sortedArr[i].completed = true;
-      } else {
-        sortedArr[i].completed = false;
-      }
-      localStorage.setItem('To-Do List', JSON.stringify(sortedArr));
-    });
+    checkmark.addEventListener('click', () => updateStatus(checkmark, sortedArr, i));
   }
 };
 
