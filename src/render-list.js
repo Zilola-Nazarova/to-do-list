@@ -6,7 +6,7 @@ import binIcon from './icons/bin-svgrepo-com.svg';
 const renderList = (arr) => {
   const ul = document.querySelector('ul');
   const sortedArr = [...arr];
-  
+
   ul.innerHTML = '';
   sortedArr.sort((a, b) => a.index - b.index);
 
@@ -19,7 +19,7 @@ const renderList = (arr) => {
     const deleteBtn = document.createElement('button');
     const moveIcon = document.createElement('img');
     const deleteIcon = document.createElement('img');
-    
+
     // Update indexes
     sortedArr[i].index = i + 1;
 
