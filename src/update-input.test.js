@@ -22,9 +22,9 @@ describe('to update already inserted item to discription', () => {
     ];
     document.body.innerHTML = '<div>'
     + '  <ul id="list">'
-    + '  <li><input><li/>'
-    + '  <li><input><li/>'
-    + '  <li><input><li/>'
+    + '  <li><input></li>'
+    + '  <li><input></li>'
+    + '  <li><input></li>'
     + '  </ul>'
     + '</div>';
     const position = 0;
@@ -57,6 +57,7 @@ describe('to update already inserted item to discription', () => {
     document.body.innerHTML = '<div>'
     + '  <input id="add-task">'
     + '  <ul id="list">'
+    + '  <li><input /></li>'
     + '  <li><input /></li>'
     + '  </ul>'
     + '</div>';

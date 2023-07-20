@@ -25,9 +25,9 @@ describe('should add/remove class from an HTML element', () => {
 
     document.body.innerHTML = '<div>'
     + '  <ul id="list">'
-    + '  <li><span><li/>'
-    + '  <li><span class="checked"><li/>'
-    + '  <li><span><li/>'
+    + '  <li><span></span></li>'
+    + '  <li><span class="checked"></span></li>'
+    + '  <li><span></span></li>'
     + '  </ul>'
     + '</div>';
 
@@ -64,9 +64,9 @@ describe('should add/remove class from an HTML element', () => {
 
     document.body.innerHTML = '<div>'
     + '  <ul id="list">'
-    + '  <li><span><li/>'
-    + '  <li><span class="checked"><li/>'
-    + '  <li><span><li/>'
+    + '  <li><span></span></li>'
+    + '  <li><span class="checked"></span></li>'
+    + '  <li><span></span></li>'
     + '  </ul>'
     + '</div>';
 
@@ -105,9 +105,9 @@ describe('should change completed attribute of the task at the given position', 
 
     document.body.innerHTML = '<div>'
     + '  <ul id="list">'
-    + '  <li><span><li/>'
-    + '  <li><span class="checked"><li/>'
-    + '  <li><span><li/>'
+    + '  <li><span></span></li>'
+    + '  <li><span class="checked"></span></li>'
+    + '  <li><span></span></li>'
     + '  </ul>'
     + '</div>';
 
@@ -144,9 +144,9 @@ describe('should change completed attribute of the task at the given position', 
 
     document.body.innerHTML = '<div>'
     + '  <ul id="list">'
-    + '  <li><span><li/>'
-    + '  <li><span class="checked"><li/>'
-    + '  <li><span><li/>'
+    + '  <li><span></span></li>'
+    + '  <li><span class="checked"></span></li>'
+    + '  <li><span></span></li>'
     + '  </ul>'
     + '</div>';
 
@@ -185,9 +185,9 @@ describe('should update localStorage', () => {
 
     document.body.innerHTML = '<div>'
     + '  <ul id="list">'
-    + '  <li><span><li/>'
-    + '  <li><span class="checked"><li/>'
-    + '  <li><span><li/>'
+    + '  <li><span></span></li>'
+    + '  <li><span class="checked"></span></li>'
+    + '  <li><span></span></li>'
     + '  </ul>'
     + '</div>';
 
@@ -225,9 +225,9 @@ describe('should update localStorage', () => {
 
     document.body.innerHTML = '<div>'
     + '  <ul id="list">'
-    + '  <li><span><li/>'
-    + '  <li><span class="checked"><li/>'
-    + '  <li><span><li/>'
+    + '  <li><span></span></li>'
+    + '  <li><span class="checked"></span></li>'
+    + '  <li><span></span></li>'
     + '  </ul>'
     + '</div>';
 

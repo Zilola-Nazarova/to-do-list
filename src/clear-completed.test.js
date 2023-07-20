@@ -24,9 +24,9 @@ describe('should clear a Tasklist of the all completed Tasks', () => {
     ];
     document.body.innerHTML = '<div>'
     + '  <ul id="list">'
-    + '  <li><li/>'
-    + '  <li><li/>'
-    + '  <li><li/>'
+    + '  <li></li>'
+    + '  <li></li>'
+    + '  <li></li>'
     + '  </ul>'
     + '</div>';
 
@@ -70,9 +70,9 @@ describe('should clear a Tasklist of the all completed Tasks', () => {
     ];
     document.body.innerHTML = '<div>'
     + '  <ul id="list">'
-    + '  <li><li/>'
-    + '  <li><li/>'
-    + '  <li><li/>'
+    + '  <li></li>'
+    + '  <li></li>'
+    + '  <li></li>'
     + '  </ul>'
     + '</div>';
 
@@ -105,9 +105,9 @@ describe('should clear a Tasklist of the all completed Tasks', () => {
     ];
     document.body.innerHTML = '<div>'
     + '  <ul id="list">'
-    + '  <li><li/>'
-    + '  <li><li/>'
-    + '  <li><li/>'
+    + '  <li></li>'
+    + '  <li></li>'
+    + '  <li></li>'
     + '  </ul>'
     + '</div>';
 
@@ -158,9 +158,9 @@ describe('should display the correct number of <li> elements', () => {
     ];
     document.body.innerHTML = '<div>'
     + '  <ul id="list">'
-    + '  <li><li/>'
-    + '  <li><li/>'
-    + '  <li><li/>'
+    + '  <li></li>'
+    + '  <li></li>'
+    + '  <li></li>'
     + '  </ul>'
     + '</div>';
 
@@ -192,9 +192,9 @@ describe('should display the correct number of <li> elements', () => {
     ];
     document.body.innerHTML = '<div>'
     + '  <ul id="list">'
-    + '  <li><li/>'
-    + '  <li><li/>'
-    + '  <li><li/>'
+    + '  <li></li>'
+    + '  <li></li>'
+    + '  <li></li>'
     + '  </ul>'
     + '</div>';
 
@@ -227,9 +227,9 @@ describe('should display the correct number of <li> elements', () => {
     ];
     document.body.innerHTML = '<div>'
     + '  <ul id="list">'
-    + '  <li><li/>'
-    + '  <li><li/>'
-    + '  <li><li/>'
+    + '  <li></li>'
+    + '  <li></li>'
+    + '  <li></li>'
     + '  </ul>'
     + '</div>';
     // act
