@@ -1,9 +1,8 @@
-import clearCompleted from "./clear-completed";
+import clearCompleted from './clear-completed.js';
 
 jest.mock('./render-list.js');
 
 describe('should clear a Tasklist of the all completed Tasks', () => {
-
   test('should clear from some completed tasks', () => {
     // arrange
     const arrayOfTasks = [
@@ -48,7 +47,6 @@ describe('should clear a Tasklist of the all completed Tasks', () => {
         index: 2,
       },
     ]);
-
   });
 
   test('should clear from all tasks and output an empty array', () => {
@@ -84,7 +82,6 @@ describe('should clear a Tasklist of the all completed Tasks', () => {
 
     // assert
     expect(result).toMatchObject([]);
-
   });
 
   test('should leave all the tasks untouched', () => {
@@ -136,13 +133,10 @@ describe('should clear a Tasklist of the all completed Tasks', () => {
         index: 3,
       },
     ]);
-
   });
-
 });
 
 describe('should display the correct number of <li> elements', () => {
-
   test('should delete some <li> elements', () => {
     // arrange
     const arrayOfTasks = [
@@ -175,7 +169,6 @@ describe('should display the correct number of <li> elements', () => {
     const listItems = document.querySelectorAll('li');
     // assert
     expect(listItems).toHaveLength(2);
-
   });
 
   test('edge case, should delete all <li> elements', () => {
@@ -210,9 +203,7 @@ describe('should display the correct number of <li> elements', () => {
     const listItems = document.querySelectorAll('li');
 
     // assert
-    console.log(listItems);
     expect(listItems).toHaveLength(0);
-
   });
 
   test('edge case, should leave all <li> elements untouched', () => {
@@ -246,7 +237,5 @@ describe('should display the correct number of <li> elements', () => {
     const listItems = document.querySelectorAll('li');
     // assert
     expect(listItems).toHaveLength(3);
-
   });
-
-})
+});
