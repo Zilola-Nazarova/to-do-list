@@ -1,4 +1,4 @@
-import completedIsFalse from './completed-filter.js';
+import clearCompleted from './clear-completed.js';
 import addTask from './add-item.js';
 import renderList from './render-list.js';
 
@@ -29,18 +29,13 @@ class TaskList {
 
     const clearBtn = document.getElementById('clear');
     clearBtn.addEventListener('click', () => {
-      this.clearCompleted();
+      clearCompleted(this.tasks);
+      this.tasks = JSON.parse(localStorage.getItem('To-Do List'));
     });
 
     window.addEventListener('load', () => {
       renderList(this.tasks);
     });
-  }
-
-  clearCompleted() {
-    this.tasks = this.tasks.filter(completedIsFalse);
-    renderList(this.tasks);
-    localStorage.setItem('To-Do List', JSON.stringify(this.tasks));
   }
 }
 

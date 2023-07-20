@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1689787732524" clover="3.2.0">
-  <project timestamp="1689787732524" name="All files">
-    <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3" elements="16" coveredelements="16" complexity="0" loc="13" ncloc="13" packages="1" files="3" classes="3"/>
+<coverage generated="1689872883044" clover="3.2.0">
+  <project timestamp="1689872883044" name="All files">
+    <metrics statements="26" coveredstatements="26" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="7" elements="35" coveredelements="35" complexity="0" loc="26" ncloc="26" packages="1" files="6" classes="6"/>
     <file name="add-item.js" path="D:\Microverse\repos\to-do-list\src\add-item.js">
       <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <line num="4" count="1" type="stmt"/>
@@ -10,6 +10,13 @@
       <line num="7" count="4" type="stmt"/>
       <line num="8" count="4" type="stmt"/>
       <line num="9" count="4" type="stmt"/>
+    </file>
+    <file name="clear-completed.js" path="D:\Microverse\repos\to-do-list\src\clear-completed.js">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="4" count="18" type="stmt"/>
+      <line num="5" count="6" type="stmt"/>
+      <line num="6" count="6" type="stmt"/>
     </file>
     <file name="delete-item.js" path="D:\Microverse\repos\to-do-list\src\delete-item.js">
       <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
@@ -23,6 +30,21 @@
       <line num="3" count="4" type="stmt"/>
       <line num="4" count="4" type="stmt"/>
       <line num="5" count="4" type="stmt"/>
+    </file>
+    <file name="update-input.js" path="D:\Microverse\repos\to-do-list\src\update-input.js">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <line num="1" count="4" type="stmt"/>
+      <line num="2" count="2" type="stmt"/>
+      <line num="3" count="2" type="stmt"/>
+    </file>
+    <file name="update-status.js" path="D:\Microverse\repos\to-do-list\src\update-status.js">
+      <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <line num="1" count="4" type="stmt"/>
+      <line num="2" count="6" type="stmt"/>
+      <line num="3" count="6" type="cond" truecount="2" falsecount="0"/>
+      <line num="4" count="3" type="stmt"/>
+      <line num="6" count="3" type="stmt"/>
+      <line num="8" count="6" type="stmt"/>
     </file>
   </project>
 </coverage>

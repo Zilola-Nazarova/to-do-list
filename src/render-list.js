@@ -1,38 +1,52 @@
 /* eslint-disable import/no-cycle */
 import deleteTask from './delete-item.js';
+import updateInput from './update-input.js';
+import updateStatus from './update-status.js';
 import dragIcon from './icons/drag-handle-minor-svgrepo-com.svg';
 import binIcon from './icons/bin-svgrepo-com.svg';
 
 const renderList = (arr) => {
   const ul = document.querySelector('ul');
-  ul.innerHTML = '';
-
   const sortedArr = [...arr];
+
+  ul.innerHTML = '';
   sortedArr.sort((a, b) => a.index - b.index);
 
   for (let i = 0; i < sortedArr.length; i += 1) {
-    sortedArr[i].index = i + 1;
+    // Create elements
     const li = document.createElement('li');
-    // const label = document.createElement('label');
     const input = document.createElement('input');
-
     const checkmark = document.createElement('span');
-    checkmark.classList.add('checkmark');
+    const moveBtn = document.createElement('button');
+    const deleteBtn = document.createElement('button');
+    const moveIcon = document.createElement('img');
+    const deleteIcon = document.createElement('img');
+
+    // Update indexes
+    sortedArr[i].index = i + 1;
+
+    // Configure elements
+
     if (sortedArr[i].completed === true) {
       checkmark.classList.add('checked');
     }
-
-    const moveBtn = document.createElement('button');
-    const deleteBtn = document.createElement('button');
-
-    const moveIcon = document.createElement('img');
+    input.value = `${sortedArr[i].description}`;
     moveIcon.src = dragIcon;
-    moveBtn.appendChild(moveIcon);
-
-    const deleteIcon = document.createElement('img');
     deleteIcon.src = binIcon;
-    deleteBtn.appendChild(deleteIcon);
     deleteBtn.classList.add('hidden');
+    checkmark.classList.add('checkmark');
+
+    // Append elements
+
+    moveBtn.appendChild(moveIcon);
+    deleteBtn.appendChild(deleteIcon);
+    li.appendChild(checkmark);
+    li.appendChild(input);
+    li.appendChild(deleteBtn);
+    li.appendChild(moveBtn);
+    ul.appendChild(li);
+
+    // Event listeners
 
     deleteBtn.addEventListener('click', () => {
       deleteTask(arr, i);
@@ -52,32 +66,16 @@ const renderList = (arr) => {
       document.querySelectorAll('li').forEach((element) => {
         element.classList.remove('on-edit');
       });
+      checkmark.classList.remove('darken');
       setTimeout(() => {
         deleteBtn.classList.add('hidden');
         moveBtn.classList.remove('hidden');
       }, 500);
     });
 
-    li.appendChild(checkmark);
-    li.appendChild(input);
-    input.value = `${sortedArr[i].description}`;
-    input.addEventListener('keyup', () => {
-      sortedArr[i].description = input.value;
-      localStorage.setItem('To-Do List', JSON.stringify(sortedArr));
-    });
-    li.appendChild(deleteBtn);
-    li.appendChild(moveBtn);
-    ul.appendChild(li);
+    input.addEventListener('keyup', () => updateInput(sortedArr, i, input));
 
-    checkmark.addEventListener('click', () => {
-      checkmark.classList.toggle('checked');
-      if (checkmark.classList.contains('checked')) {
-        sortedArr[i].completed = true;
-      } else {
-        sortedArr[i].completed = false;
-      }
-      localStorage.setItem('To-Do List', JSON.stringify(sortedArr));
-    });
+    checkmark.addEventListener('click', () => updateStatus(checkmark, sortedArr, i));
   }
 };
 
