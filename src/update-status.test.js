@@ -237,6 +237,7 @@ describe('should update localStorage', () => {
     // act
     updateStatus(givenCheckmark, arrayOfTasks, position);
     const updatedLocalStorage = JSON.parse(localStorage.getItem('To-Do List'));
+
     // assert
     expect(updatedLocalStorage[position].completed).toBe(false);
   });
