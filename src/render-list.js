@@ -1,5 +1,6 @@
 /* eslint-disable import/no-cycle */
 import deleteTask from './delete-item.js';
+import updateInput from './update-input.js';
 import updateStatus from './update-status.js';
 import dragIcon from './icons/drag-handle-minor-svgrepo-com.svg';
 import binIcon from './icons/bin-svgrepo-com.svg';
@@ -72,10 +73,7 @@ const renderList = (arr) => {
       }, 500);
     });
 
-    input.addEventListener('keyup', () => {
-      sortedArr[i].description = input.value;
-      localStorage.setItem('To-Do List', JSON.stringify(sortedArr));
-    });
+    input.addEventListener('keyup', () => updateInput(sortedArr, i, input));
 
     checkmark.addEventListener('click', () => updateStatus(checkmark, sortedArr, i));
   }
