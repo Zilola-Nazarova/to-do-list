@@ -110,33 +110,33 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 
 /***/ }),
 
-/***/ "./src/CompletedFilter.js":
+/***/ "./src/add-item.js":
+/*!*************************!*\
+  !*** ./src/add-item.js ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _task_object_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./task-object.js */ \"./src/task-object.js\");\n/* harmony import */ var _render_list_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./render-list.js */ \"./src/render-list.js\");\n\n\n\nconst addTask = (description, arr) => {\n  const aTask = new _task_object_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"](description, arr.length);\n  arr.push(aTask);\n  (0,_render_list_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(arr);\n  localStorage.setItem('To-Do List', JSON.stringify(arr));\n  document.getElementById('add-task').value = '';\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addTask);\n\n//# sourceURL=webpack://to-do-list/./src/add-item.js?");
+
+/***/ }),
+
+/***/ "./src/clear-completed.js":
 /*!********************************!*\
-  !*** ./src/CompletedFilter.js ***!
+  !*** ./src/clear-completed.js ***!
   \********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst completedIsFalse = (task) => {\r\n  return task.completed === false;\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (completedIsFalse);\n\n//# sourceURL=webpack://to-do-list/./src/CompletedFilter.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _render_list_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./render-list.js */ \"./src/render-list.js\");\n\n\nconst clearCompleted = (arr) => {\n  arr = arr.filter((task) => task.completed === false);\n  (0,_render_list_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(arr);\n  localStorage.setItem('To-Do List', JSON.stringify(arr));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (clearCompleted);\n\n//# sourceURL=webpack://to-do-list/./src/clear-completed.js?");
 
 /***/ }),
 
-/***/ "./src/TaskListClass.js":
-/*!******************************!*\
-  !*** ./src/TaskListClass.js ***!
-  \******************************/
+/***/ "./src/delete-item.js":
+/*!****************************!*\
+  !*** ./src/delete-item.js ***!
+  \****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _TaskObject_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TaskObject.js */ \"./src/TaskObject.js\");\n/* harmony import */ var _CompletedFilter_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CompletedFilter.js */ \"./src/CompletedFilter.js\");\n/* harmony import */ var _drag_handle_minor_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./drag-handle-minor-svgrepo-com.svg */ \"./src/drag-handle-minor-svgrepo-com.svg\");\n/* harmony import */ var _bin_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./bin-svgrepo-com.svg */ \"./src/bin-svgrepo-com.svg\");\n\r\n\r\n\r\n\r\n\r\nclass TaskList {\r\n  constructor() {\r\n    this.tasks = JSON.parse(localStorage.getItem('To-Do List')) || [];\r\n  }\r\n\r\n  init() {\r\n    const addButton = document.getElementById('add-btn');\r\n    addButton.addEventListener('click', (event) => {\r\n      event.preventDefault();\r\n      this.addingEventListener();\r\n    });\r\n\r\n    document.getElementById('add-task').addEventListener('keypress', (event) => {\r\n      if (event.key === 'Enter') {\r\n        event.preventDefault();\r\n        this.addingEventListener();\r\n      }\r\n    });\r\n\r\n    const clearBtn = document.getElementById('clear');\r\n    clearBtn.addEventListener('click', () => {\r\n      this.clearCompleted();\r\n    });\r\n\r\n    window.addEventListener('load', () => {\r\n      this.renderList();\r\n    });\r\n  }\r\n\r\n  addingEventListener() {\r\n    const description = document.getElementById('add-task').value;\r\n    if (description !== '') {\r\n      const aTask = new _TaskObject_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"](description, this.tasks.length);\r\n      this.addTask(aTask);\r\n      this.renderList();\r\n      document.getElementById('add-task').value = '';\r\n    }\r\n  }\r\n\r\n  addTask(aTask) {\r\n    this.tasks.push(aTask);\r\n    localStorage.setItem('To-Do List', JSON.stringify(this.tasks));\r\n  }\r\n\r\n  deleteTask(index) {\r\n    this.tasks.splice(index, 1);\r\n    this.renderList();\r\n    localStorage.setItem('To-Do List', JSON.stringify(this.tasks));\r\n  }\r\n\r\n  clearCompleted() {\r\n    this.tasks = this.tasks.filter(_CompletedFilter_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"]);\r\n    this.renderList();\r\n    localStorage.setItem('To-Do List', JSON.stringify(this.tasks));\r\n  }\r\n\r\n  renderList() {\r\n    const ul = document.querySelector('ul');\r\n    ul.innerHTML = '';\r\n\r\n    const sortedArr = [...this.tasks];\r\n    sortedArr.sort((a, b) => a.index - b.index);\r\n\r\n    for (let i = 0; i < sortedArr.length; i += 1) {\r\n      this.tasks[i].index = i + 1;\r\n      const li = document.createElement('li');\r\n      // const label = document.createElement('label');\r\n      const input = document.createElement('input');\r\n\r\n      const checkmark = document.createElement('span');\r\n      checkmark.classList.add('checkmark');\r\n      if (this.tasks[i].completed === true) {\r\n        checkmark.classList.add('checked');\r\n      }\r\n\r\n      const moveBtn = document.createElement('button');\r\n      const deleteBtn = document.createElement('button');\r\n\r\n      const moveIcon = document.createElement('img');\r\n      moveIcon.src = _drag_handle_minor_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_2__;\r\n      moveBtn.appendChild(moveIcon);\r\n\r\n      const deleteIcon = document.createElement('img');\r\n      deleteIcon.src = _bin_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_3__;\r\n      deleteBtn.appendChild(deleteIcon);\r\n      deleteBtn.classList.add('hidden');\r\n\r\n      deleteBtn.addEventListener('click', () => {\r\n        this.deleteTask(i);\r\n      });\r\n\r\n      input.addEventListener('click', () => {\r\n        document.querySelectorAll('li').forEach((element) => {\r\n          element.classList.remove('on-edit');\r\n        });\r\n        li.classList.add('on-edit');\r\n        checkmark.classList.add('darken');\r\n        moveBtn.classList.add('hidden');\r\n        deleteBtn.classList.remove('hidden');\r\n      });\r\n\r\n      input.addEventListener('blur', () => {\r\n        document.querySelectorAll('li').forEach((element) => {\r\n          element.classList.remove('on-edit');\r\n        });\r\n        setTimeout(() => {\r\n          deleteBtn.classList.add('hidden');\r\n          moveBtn.classList.remove('hidden');\r\n        }, 500);\r\n      });\r\n\r\n      li.appendChild(checkmark);\r\n      li.appendChild(input);\r\n      input.value = `${sortedArr[i].description}`;\r\n      input.addEventListener('keyup', () => {\r\n        sortedArr[i].description = input.value;\r\n        localStorage.setItem('To-Do List', JSON.stringify(this.tasks));\r\n      })\r\n      li.appendChild(deleteBtn);\r\n      li.appendChild(moveBtn);\r\n      ul.appendChild(li);\r\n\r\n      checkmark.addEventListener('click', () => {\r\n        checkmark.classList.toggle('checked');\r\n        if (checkmark.classList.contains('checked')) {\r\n          this.tasks[i].completed = true;\r\n        } else {\r\n          this.tasks[i].completed = false;\r\n        }\r\n        localStorage.setItem('To-Do List', JSON.stringify(this.tasks));\r\n      });\r\n    }\r\n  }\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TaskList);\n\n//# sourceURL=webpack://to-do-list/./src/TaskListClass.js?");
-
-/***/ }),
-
-/***/ "./src/TaskObject.js":
-/*!***************************!*\
-  !*** ./src/TaskObject.js ***!
-  \***************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nclass TaskObject {\r\n  constructor(description, index) {\r\n    this.description = description;\r\n    this.completed = false;\r\n    this.index = index + 1;\r\n  }\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TaskObject);\n\n//# sourceURL=webpack://to-do-list/./src/TaskObject.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _render_list_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./render-list.js */ \"./src/render-list.js\");\n/* eslint-disable import/no-cycle */\n\n\nconst deleteTask = (arr, index) => {\n  arr.splice(index, 1);\n  (0,_render_list_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(arr);\n  localStorage.setItem('To-Do List', JSON.stringify(arr));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (deleteTask);\n\n//# sourceURL=webpack://to-do-list/./src/delete-item.js?");
 
 /***/ }),
 
@@ -146,27 +146,77 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _TaskListClass_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TaskListClass.js */ \"./src/TaskListClass.js\");\n\r\n\r\n\r\nconst listName = \"Today's To Do\";\r\nconst label = document.querySelector('label');\r\nlabel.innerHTML = listName;\r\n\r\nconst taskList = new _TaskListClass_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"]();\r\ntaskList.init();\r\n\n\n//# sourceURL=webpack://to-do-list/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _tasklist_class_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tasklist-class.js */ \"./src/tasklist-class.js\");\n\n\n\nconst listName = \"Today's To Do\";\nconst label = document.querySelector('label');\nlabel.innerHTML = listName;\n\nconst taskList = new _tasklist_class_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"]();\ntaskList.init();\n\n\n//# sourceURL=webpack://to-do-list/./src/index.js?");
 
 /***/ }),
 
-/***/ "./src/bin-svgrepo-com.svg":
-/*!*********************************!*\
-  !*** ./src/bin-svgrepo-com.svg ***!
-  \*********************************/
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ "./src/render-list.js":
+/*!****************************!*\
+  !*** ./src/render-list.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("module.exports = __webpack_require__.p + \"c8c8820739a18e905c2a.svg\";\n\n//# sourceURL=webpack://to-do-list/./src/bin-svgrepo-com.svg?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _delete_item_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./delete-item.js */ \"./src/delete-item.js\");\n/* harmony import */ var _update_input_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./update-input.js */ \"./src/update-input.js\");\n/* harmony import */ var _update_status_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./update-status.js */ \"./src/update-status.js\");\n/* harmony import */ var _icons_drag_handle_minor_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./icons/drag-handle-minor-svgrepo-com.svg */ \"./src/icons/drag-handle-minor-svgrepo-com.svg\");\n/* harmony import */ var _icons_bin_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./icons/bin-svgrepo-com.svg */ \"./src/icons/bin-svgrepo-com.svg\");\n/* eslint-disable import/no-cycle */\n\n\n\n\n\n\nconst renderList = (arr) => {\n  const ul = document.querySelector('ul');\n  const sortedArr = [...arr];\n\n  ul.innerHTML = '';\n  sortedArr.sort((a, b) => a.index - b.index);\n\n  for (let i = 0; i < sortedArr.length; i += 1) {\n    // Create elements\n    const li = document.createElement('li');\n    const input = document.createElement('input');\n    const checkmark = document.createElement('span');\n    const moveBtn = document.createElement('button');\n    const deleteBtn = document.createElement('button');\n    const moveIcon = document.createElement('img');\n    const deleteIcon = document.createElement('img');\n\n    // Update indexes\n    sortedArr[i].index = i + 1;\n\n    // Configure elements\n\n    if (sortedArr[i].completed === true) {\n      checkmark.classList.add('checked');\n    }\n    input.value = `${sortedArr[i].description}`;\n    moveIcon.src = _icons_drag_handle_minor_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_3__;\n    deleteIcon.src = _icons_bin_svgrepo_com_svg__WEBPACK_IMPORTED_MODULE_4__;\n    deleteBtn.classList.add('hidden');\n    checkmark.classList.add('checkmark');\n\n    // Append elements\n\n    moveBtn.appendChild(moveIcon);\n    deleteBtn.appendChild(deleteIcon);\n    li.appendChild(checkmark);\n    li.appendChild(input);\n    li.appendChild(deleteBtn);\n    li.appendChild(moveBtn);\n    ul.appendChild(li);\n\n    // Event listeners\n\n    deleteBtn.addEventListener('click', () => {\n      (0,_delete_item_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(arr, i);\n    });\n\n    input.addEventListener('click', () => {\n      document.querySelectorAll('li').forEach((element) => {\n        element.classList.remove('on-edit');\n      });\n      li.classList.add('on-edit');\n      checkmark.classList.add('darken');\n      moveBtn.classList.add('hidden');\n      deleteBtn.classList.remove('hidden');\n    });\n\n    input.addEventListener('blur', () => {\n      document.querySelectorAll('li').forEach((element) => {\n        element.classList.remove('on-edit');\n      });\n      checkmark.classList.remove('darken');\n      setTimeout(() => {\n        deleteBtn.classList.add('hidden');\n        moveBtn.classList.remove('hidden');\n      }, 500);\n    });\n\n    input.addEventListener('keyup', () => (0,_update_input_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(sortedArr, i, input));\n\n    checkmark.addEventListener('click', () => (0,_update_status_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(checkmark, sortedArr, i));\n  }\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (renderList);\n\n//# sourceURL=webpack://to-do-list/./src/render-list.js?");
 
 /***/ }),
 
-/***/ "./src/drag-handle-minor-svgrepo-com.svg":
-/*!***********************************************!*\
-  !*** ./src/drag-handle-minor-svgrepo-com.svg ***!
-  \***********************************************/
+/***/ "./src/task-object.js":
+/*!****************************!*\
+  !*** ./src/task-object.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nclass TaskObject {\n  constructor(description, index) {\n    this.description = description;\n    this.completed = false;\n    this.index = index + 1;\n  }\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TaskObject);\n\n//# sourceURL=webpack://to-do-list/./src/task-object.js?");
+
+/***/ }),
+
+/***/ "./src/tasklist-class.js":
+/*!*******************************!*\
+  !*** ./src/tasklist-class.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _clear_completed_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./clear-completed.js */ \"./src/clear-completed.js\");\n/* harmony import */ var _add_item_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./add-item.js */ \"./src/add-item.js\");\n/* harmony import */ var _render_list_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./render-list.js */ \"./src/render-list.js\");\n\n\n\n\nclass TaskList {\n  constructor() {\n    this.tasks = JSON.parse(localStorage.getItem('To-Do List')) || [];\n  }\n\n  init() {\n    const addButton = document.getElementById('add-btn');\n    addButton.addEventListener('click', (event) => {\n      event.preventDefault();\n      const description = document.getElementById('add-task').value;\n      if (description !== '') {\n        (0,_add_item_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(description, this.tasks);\n      }\n    });\n\n    document.getElementById('add-task').addEventListener('keypress', (event) => {\n      if (event.key === 'Enter') {\n        event.preventDefault();\n        const description = document.getElementById('add-task').value;\n        if (description !== '') {\n          (0,_add_item_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(description, this.tasks);\n        }\n      }\n    });\n\n    const clearBtn = document.getElementById('clear');\n    clearBtn.addEventListener('click', () => {\n      (0,_clear_completed_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(this.tasks);\n      this.tasks = JSON.parse(localStorage.getItem('To-Do List'));\n    });\n\n    window.addEventListener('load', () => {\n      (0,_render_list_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(this.tasks);\n    });\n  }\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TaskList);\n\n//# sourceURL=webpack://to-do-list/./src/tasklist-class.js?");
+
+/***/ }),
+
+/***/ "./src/update-input.js":
+/*!*****************************!*\
+  !*** ./src/update-input.js ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst updateInput = (sortedArr, i, input) => {\n  sortedArr[i].description = input.value;\n  localStorage.setItem('To-Do List', JSON.stringify(sortedArr));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (updateInput);\n\n\n//# sourceURL=webpack://to-do-list/./src/update-input.js?");
+
+/***/ }),
+
+/***/ "./src/update-status.js":
+/*!******************************!*\
+  !*** ./src/update-status.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst updateStatus = (checkmark, sortedArr, i) => {\n  checkmark.classList.toggle('checked');\n  if (checkmark.classList.contains('checked')) {\n    sortedArr[i].completed = true;\n  } else {\n    sortedArr[i].completed = false;\n  }\n  localStorage.setItem('To-Do List', JSON.stringify(sortedArr));\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (updateStatus);\n\n//# sourceURL=webpack://to-do-list/./src/update-status.js?");
+
+/***/ }),
+
+/***/ "./src/icons/bin-svgrepo-com.svg":
+/*!***************************************!*\
+  !*** ./src/icons/bin-svgrepo-com.svg ***!
+  \***************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("module.exports = __webpack_require__.p + \"b81006f2057eb1367a42.svg\";\n\n//# sourceURL=webpack://to-do-list/./src/drag-handle-minor-svgrepo-com.svg?");
+eval("module.exports = __webpack_require__.p + \"c8c8820739a18e905c2a.svg\";\n\n//# sourceURL=webpack://to-do-list/./src/icons/bin-svgrepo-com.svg?");
+
+/***/ }),
+
+/***/ "./src/icons/drag-handle-minor-svgrepo-com.svg":
+/*!*****************************************************!*\
+  !*** ./src/icons/drag-handle-minor-svgrepo-com.svg ***!
+  \*****************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("module.exports = __webpack_require__.p + \"b81006f2057eb1367a42.svg\";\n\n//# sourceURL=webpack://to-do-list/./src/icons/drag-handle-minor-svgrepo-com.svg?");
 
 /***/ })
 
