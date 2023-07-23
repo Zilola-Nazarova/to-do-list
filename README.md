@@ -1,7 +1,7 @@
 <div align="center">
 <h3><b>Zilola - To-Do list</b></h3>
 </div>
-This is a project created in the Microverse curriculum
+To-Do List is a single-page app where users create their own to-do lists. In this app users can add new tasks, edit them, delete any task, check the completed tasks and delete all the completed tasks in one click.
 
 <a name="readme-top"></a>
 
